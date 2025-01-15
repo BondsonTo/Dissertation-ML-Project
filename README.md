@@ -9,6 +9,8 @@ Environmental, Social and Governance (ESG) became increasingly important for bus
 
 This project investigates the relationship between **Environmental, Social, and Governance (ESG) scores** and C**orporate Financial Performance (CFP)** using machine learning models. With a dataset of 3,422 companies across 26 countries, the research deploys four machine learning techniques, including **Linear Regression, Random Forest, Support Vector Regression, and Artificial Neural Networks**, to predict Return on **Equity (ROE)** based on ESG scores. The findings indicate a notable correlation between high ESG scores and improved financial performance. ESG score with factor significance to explain company ROE comparable to company net sales. Such correlation is highly industry-specific with complex relationship remain unresolved. The findings support companies putting higher emphasis in ESG efforts and transformation.
 
+![Power BI Dashboard](https://github.com/user-attachments/assets/6ee913f9-926c-4a6a-9911-ef0d9a9ca002)
+
 ## Findings
 The dissertation employs both parametric (Linear Regression) and non-parametric (Random Forest, Support Vector Regression, Artificial Neural Networks) methods. The models are evaluated based on performance metrics such as adjusted R-squared, mean squared error, and root mean square error. Model findings are summarized below:
 
