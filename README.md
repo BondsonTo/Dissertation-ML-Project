@@ -1,6 +1,10 @@
 # ESG Score to Explain Company Financial Performance
 This is my Master degree data analysis dissertation project.  Models built with various machine learning alglorithms trying to validate if companies ESG efforts would contribute to financial growth.
 
+>**Technical Expertise: Python, Power BI, Power Query, Google Colab**
+
+>**Skills: Data Analysis, Machine Learning, Data Visualization**
+
 ## Background
 
 Environmental, Social and Governance (ESG) became increasingly important for businesses and investors due to the growing awareness. Despite of inter-governmental efforts to promote ESG, Investors are also paying more attention to ESG performance as their investment criteria. Some viewed compliance and reporting requirement associated with ESG effort would adversely affect the company financials. This project aimed at investigating if ESG efforts and transformation really paid off at company level.
@@ -9,7 +13,37 @@ Environmental, Social and Governance (ESG) became increasingly important for bus
 
 This project investigates the relationship between **Environmental, Social, and Governance (ESG) scores** and C**orporate Financial Performance (CFP)** using machine learning models. With a dataset of 3,422 companies across 26 countries, the research deploys four machine learning techniques, including **Linear Regression, Random Forest, Support Vector Regression, and Artificial Neural Networks**, to predict Return on **Equity (ROE)** based on ESG scores. The findings indicate a notable correlation between high ESG scores and improved financial performance. ESG score with factor significance to explain company ROE comparable to company net sales. Such correlation is highly industry-specific with complex relationship remain unresolved. The findings support companies putting higher emphasis in ESG efforts and transformation.
 
+## Quick glance of the dataset
+### Dashboard Overview
+The dataset for this project is retrieved from Refinitiv database as of 31 May 2024. Below Power BI dashboard summarized and visualised the key metrics after data preprocessing
+
 ![Power BI Dashboard](https://github.com/user-attachments/assets/6ee913f9-926c-4a6a-9911-ef0d9a9ca002)
+
+-	After data cleaning, **3513 companies** remained across 74 industries in final dataset. The industry classification followed the GICS as aligned with the Refinitiv database. [^1]
+-	**Return on Equity (ROE %)** is the financial measures as proxy of company financial performance. The average ROE% as per latest financial year [^2] in companies from final dataset is 11.28%.
+-	**ESG score** as proxy for company ESG performance measures. The score in this data analysis project referred to the score given by Refinitiv ranged from 0 to 100. There is a composite combined score (ESG combined score), which made of 3 individual pillar score (Environmental, Social and Governance). In the final dataset, ESG combined score averaged 50.52. Individual pillar score of environmental, Social and Governance are 46.92, 56.23 and 55.35 respectively.
+-	No observable patterns in between **industry average ESG score and industry ROE in the scattered plot**. Hotel and REITS (63.35), Containers & Packaging (61.42), Chemicals (61.24) and Office REITS (60.93) are the top ESG performing industries (Green dots in scattered plot) measured with average ESG combined score. On the contrary, Mortgage Real Estate Investment Trusts (32.14), Entertainment (35.28) and Biotechnology (38.45) are the low ESG performing industries (Red dots in the scattered plot).
+-	Companies in the final dataset scattered across **26 countries in America, Europe and Asia**, as shown in the dots in Geographic Distribution in the above dashboard.
+
+### Data Preprocessing and Cleaning
+The final dataset went through a 2-step process for data preprocessing and cleaning [^3]. It is to ensure robust and valid prediction to be built with machine learning algorithms.
+
+(1)	Merging Refinitiv ROE, ESG score and financial data with macro-economic data from World Bank Open Data, using **_Power Query_** editor in **_Excel_**
+
+a.	Country of Exchange is the key to merge country-wise GDP% growth, Inflation % and Unemployment % to each company in          final dataset. Those macro-economic data are included in subsequent prediction model building.
+    
+(2)	Drop and fill missing values and remove outliers in ROE using Python operated in **_Google Colab_** environment
+
+a.	Companies in initial dataset with missing ROE or ESG Combined score was dropped
+    
+b.	Missing values in financial data were filled up with the average of data within the same GICS industry.
+    
+c.	Companies with extreme ROE% values, greater than 100% or less than 100% were dropped.
+
+
+[^1]: Global Industry Classificaion Standard (GICS) is an industry analysis framework that helps investors understand the key business activities for companies around the world. The classification follows hierarchy starting from 11 sectors to 25 industry groups and then sub divided into 74 industries.
+[^2]: ROE% is calculated from annual financial performance in financial year of the company. Companies would take various year end dates in financial announcement. To calculate this ROE % average, each ROE % correspond to latest available yearly data as in Refinitiv database. The year end date ranged from 31 Dec 2022 to 30 Apr 2024.
+[^3]: Python codes for data preprocessing and cleaning can refer to the .py file in depository
 
 ## Findings
 The dissertation employs both parametric (Linear Regression) and non-parametric (Random Forest, Support Vector Regression, Artificial Neural Networks) methods. The models are evaluated based on performance metrics such as adjusted R-squared, mean squared error, and root mean square error. Model findings are summarized below:
