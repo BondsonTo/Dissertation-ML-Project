@@ -19,11 +19,12 @@ The dataset for this project is retrieved from Refinitiv database as of 31 May 2
 
 ![Power BI Dashboard](https://github.com/user-attachments/assets/6ee913f9-926c-4a6a-9911-ef0d9a9ca002)
 
--	After data cleaning, **3513 companies** remained across 74 industries in final dataset. The industry classification followed the GICS as aligned with the Refinitiv database. [^1]
--	**Return on Equity (ROE %)** is the financial measures as proxy of company financial performance. The average ROE% as per latest financial year [^2] in companies from final dataset is 11.28%.
--	**ESG score** as proxy for company ESG performance measures. The score in this data analysis project referred to the score given by Refinitiv ranged from 0 to 100. There is a composite combined score (ESG combined score), which made of 3 individual pillar score (Environmental, Social and Governance). In the final dataset, ESG combined score averaged 50.52. Individual pillar score of environmental, Social and Governance are 46.92, 56.23 and 55.35 respectively.
--	No observable patterns in between **industry average ESG score and industry ROE in the scattered plot**. Hotel and REITS (63.35), Containers & Packaging (61.42), Chemicals (61.24) and Office REITS (60.93) are the top ESG performing industries (Green dots in scattered plot) measured with average ESG combined score. On the contrary, Mortgage Real Estate Investment Trusts (32.14), Entertainment (35.28) and Biotechnology (38.45) are the low ESG performing industries (Red dots in the scattered plot).
--	Companies in the final dataset scattered across **26 countries in America, Europe and Asia**, as shown in the dots in Geographic Distribution in the above dashboard.
+>-	After data cleaning, **3513 companies** remained across 74 industries in final dataset. The >industry classification followed the GICS as aligned with the Refinitiv database. [^1]
+>-	**Return on Equity (ROE %)** is the financial measures as proxy of company financial >performance. The average ROE% as per latest financial year [^2] in companies from final >dataset is 11.28%.
+>-	**ESG score** as proxy for company ESG performance measures. The score in this data >analysis project referred to the score given by Refinitiv ranged from 0 to 100. There is a >composite combined score (ESG combined score), which made of 3 individual pillar score
+>(Environmental, Social and Governance). In the final dataset, ESG combined score averaged >50.52. Individual pillar score of environmental, Social and Governance are 46.92, 56.23 and >55.35 respectively.
+>-	No observable patterns in between **industry average ESG score and industry ROE in the >scattered plot**. Hotel and REITS (63.35), Containers & Packaging (61.42), Chemicals (61.24) >and Office REITS (60.93) are the top ESG performing industries (Green dots in scattered plot) >measured with average ESG combined score. On the contrary, Mortgage Real Estate Investment >Trusts (32.14), Entertainment (35.28) and Biotechnology (38.45) are the low ESG performing >industries (Red dots in the scattered plot).
+>-	Companies in the final dataset scattered across **26 countries in America, Europe and >Asia**, as shown in the dots in Geographic Distribution in the above dashboard.
 
 ### Data Preprocessing and Cleaning
 The final dataset went through a 2-step process for data preprocessing and cleaning [^3]. It is to ensure robust and valid prediction to be built with machine learning algorithms.
@@ -44,6 +45,44 @@ c.	Companies with extreme ROE% values, greater than 100% or less than 100% were 
 [^1]: Global Industry Classificaion Standard (GICS) is an industry analysis framework that helps investors understand the key business activities for companies around the world. The classification follows hierarchy starting from 11 sectors to 25 industry groups and then sub divided into 74 industries.
 [^2]: ROE% is calculated from annual financial performance in financial year of the company. Companies would take various year end dates in financial announcement. To calculate this ROE % average, each ROE % correspond to latest available yearly data as in Refinitiv database. The year end date ranged from 31 Dec 2022 to 30 Apr 2024.
 [^3]: Python codes for data preprocessing and cleaning can refer to the .py file in depository
+
+## Deep dive into the dataset (Exploratory Data Analysis)
+### ROE%
+![frequency_distribution_D (2)](https://github.com/user-attachments/assets/5fb02b38-db06-4561-9a07-b0d94f5403b8)
+
+>ROE % followed an approximately bell shape where most observations clustered around mean, median and mode. Few extreme ROE% appeared on both positive and negative end of the graph with pronounced tail extensions. The graph appeared to be right-skewed with higher frequency of positive ROE % value.
+
+![Box_Plot_ROE_by_industry (4)](https://github.com/user-attachments/assets/005f0d68-70a8-4d37-a36f-54b86c444bed)
+
+>Segmented the data by GICS industries on ROE % in box plot gave another dimension for understanding. Notable ROE% outliers appeared in almost each of the dataset. Higher proportion of industries have averaged positive ROE%, except for biotechnology companies with whole IQR way below zero.
+
+### Predictors Variables
+The predictors are classified into 3 major groups: ESG metrics, financial metrics and macroeconomic metrics.
+
+### Correlation analysis [^4]
+![Correlation Matrix](https://github.com/user-attachments/assets/3ad22cc2-6d73-43c7-846f-ab4acf033167)
+
+>**(1)	ROE vs ESG Scores**: ROE % is weakly/moderately positive correlate to ESG combined >score, and all individual pillar scores.
+
+>**(2)	ESG Scores vs other financial metrics**:
+>
+>a.	ESG Combined vs individual pillars: All pillars demonstrate semi-strong to strong positive relations. Governance pillar is relatively weak compared to that of Environmental and Social
+>
+>b.	For each pillar score, prior year and year before last year have decreasing strength of correlation
+>
+>c.	Country inflation is moderately negative related to Environmental Score    
+>
+>d.	Current ration of company is (surprisingly) negatively related to ESG score combined and individually for all pillars scores.   
+>
+>e.	Net sales are moderately positive correlated to ESG individual pillars score.
+
+### Association analysis
+**Chi-square test** was applied to test if some industries are associated with higher or lower ESG score than others. All companies were binned into A, B, C and D grades [^5] according to their ESG combined score. The result p-value is close to zero to reject null hypothesis, i.e. there is **significant association between GICS industries and ESG score**.
+
+[^4]: Strength of correlation is measured with magnitude of correlation coefficient r, which can be described as very strong (|r| >0.8), strong (0.6<|r|<0.8), moderate (0.4<|r|<0.6), weak (0.2<|r|<0.4), and very weak (0<|r|<0.2). 
+[^5]: The grading bins in this data analysis: ESG score greater than or equal to 75 as A; Between 50 and 75 as B; Between 25 and 50 as C; Below 25 as D
+
+
 
 ## Findings
 The dissertation employs both parametric (Linear Regression) and non-parametric (Random Forest, Support Vector Regression, Artificial Neural Networks) methods. The models are evaluated based on performance metrics such as adjusted R-squared, mean squared error, and root mean square error. Model findings are summarized below:
