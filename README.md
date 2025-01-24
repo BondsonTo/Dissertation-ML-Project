@@ -23,7 +23,7 @@ The dataset for this project is retrieved from Refinitiv database as of 31 May 2
 >-	**Return on Equity (ROE %)** is the financial measures as proxy of company financial performance. The average ROE% as per latest financial year [^2] in companies from final dataset is 11.28%.
 >-	**ESG score** as proxy for company ESG performance measures. The score in this data analysis project referred to the score given by Refinitiv ranged from 0 to 100. There is a composite combined score (ESG combined score), which made of 3 individual pillar score
 (Environmental, Social and Governance). In the final dataset, ESG combined score averaged 50.52. Individual pillar score of environmental, Social and Governance are 46.92, 56.23 and 55.35 respectively.
->-	No observable patterns in between **industry average ESG score and industry ROE in the scattered plot**. Hotel and REITS (63.35), Containers & Packaging (61.42), Chemicals (61.24) and Office REITS (60.93) are the top ESG performing industries (Green dots in scattered plot) >measured with average ESG combined score. On the contrary, Mortgage Real Estate Investment >Trusts (32.14), Entertainment (35.28) and Biotechnology (38.45) are the low ESG performing >industries (Red dots in the scattered plot).
+>-	No observable patterns in between **industry average ESG score and industry ROE in the scattered plot**. Hotel and REITS (63.35), Containers & Packaging (61.42), Chemicals (61.24) and Office REITS (60.93) are the top ESG performing industries (Green dots in scattered plot) measured with average ESG combined score. On the contrary, Mortgage Real Estate Investment Trusts (32.14), Entertainment (35.28) and Biotechnology (38.45) are the low ESG performing industries (Red dots in the scattered plot).
 >![GICS Industry ROE vs ESG Score](https://github.com/user-attachments/assets/81da9166-f20b-419c-80a0-6d1e0fe2cdff)
 >-	Companies in the final dataset scattered across **26 countries in America, Europe and Asia**, as shown in the dots in Geographic Distribution in the above dashboard.
 
@@ -98,7 +98,7 @@ The dissertation employs both parametric (Linear Regression) and non-parametric 
 (4)	Feature selection: ANOVA F-statistics is 96.26 suggested the **linear model is statistically significant**. With feature selection on all 39 features, **ESG combined score and individual pillar score remained significant predictors** in the final model within selected 23 features.
 
 ### ESG impact varied among industries: 
-(1)	Feature selection in regression: The dataset contains companies from 84 industries while 17 industries exhibit linear ESG-CFP relationships, with encoded industry features remained in final regression model. **Some industries came with more sophisticated non-linear ESG-CFP relationships** which remained unresolved.
+(1)	Feature selection in regression: The dataset contains companies from 74 industries while 17 industries exhibit linear ESG-CFP relationships, with encoded industry features remained in final regression model. **Some industries came with more sophisticated non-linear ESG-CFP relationships** which remained unresolved.
 
 (2)	Feature coefficient: The standardized coefficient of industry exhibited a wide range from -5.0885 to 1.6952. Biotechnology companies had coefficient -5.0885 and capital market companies had 1.6952. If one biotech and one capital market company with same ESG score, the **ROE is more sensitive to company with industry coefficient with higher magnitude**.
 
