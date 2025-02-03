@@ -58,11 +58,26 @@ c.	Companies with extreme ROE% values, greater than 100% or less than 100% were 
 >Segmented the data by GICS industries on ROE % in box plot gave another dimension for understanding. Notable ROE% outliers appeared in almost each of the dataset. Higher proportion of industries have averaged positive ROE%, except for biotechnology companies with whole IQR way below zero.
 
 ### Predictors Variables
-The predictors are classified into 3 major groups: ESG metrics, financial metrics and macroeconomic metrics.
-|**ESG metrics**|**Financial metrics**|**Macroeconomic metrics**|
-|---------------|---------------------|-------------------------|
+The predictors are classified into 4 major groups: ESG metrics, financial metrics, macroeconomic metrics and industry classification[^4].
 
-### Correlation analysis [^4]
+|**ESG metrics**|**Financial metrics**|**Macroeconomic metrics**|Industry classification|
+|---------------|---------------------|-------------------------|---|
+|ESG Combined Score<sub>[0][1][2]</sub>|Market Beta (5 Years monthly)|GDP Growth %<sub>[0]</sub>|GICS Industry[^1]|
+|ESG Score<sub>[0][1][2]</sub>|Capital Expenditure<sub>[0][1][2]</sub>|Inflation %<sub>[0]</sub>|
+|Environmental Score<sub>[0][1][2]</sub>|Current Ratio<sub>[0]</sub>|Unemployment %<sub>[0]</sub>|
+|Social Score<sub>[0][1][2]</sub>|EBITDA <sub>[0][1][2]</sub>||
+|Governmance Score<sub>[0][1][2]</sub>|Intangibles<sub>[0]</sub>||
+||Market Capitalization||
+||Net Sales<sub>[0]</sub>||
+||PE Ratio<sub>[0][1][2]</sub>||
+||Profit Margin %<sub>[0][1][2]</sub>||
+
+Full list and explanation of each predictor variables can refer to [Appendix 1 Full lists of model response and predictors.pdf](https://github.com/user-attachments/files/18638925/Appendix.1.Full.lists.of.model.response.and.predictors.pdf)
+
+
+[^4]: Some metrics included both current year and prior year data. Those marked with <sub>[0]</sub> refers to latest/current year data; <sub>[1]</sub> refers to 1 year prior; <sub>[2]</sub> refers to 2 years prior
+
+### Correlation analysis [^5]
 ![Correlation Matrix](https://github.com/user-attachments/assets/3ad22cc2-6d73-43c7-846f-ab4acf033167)
 
 >**(1)	ROE vs ESG Scores**: ROE % is weakly/moderately positive correlate to ESG combined score, and all individual pillar scores.
@@ -80,10 +95,10 @@ The predictors are classified into 3 major groups: ESG metrics, financial metric
 >e.	Net sales are moderately positive correlated to ESG individual pillars score.
 
 ### Association analysis
-**Chi-square test** was applied to test if some industries are associated with higher or lower ESG score than others. All companies were binned into A, B, C and D grades [^5] according to their ESG combined score. The result p-value is close to zero to reject null hypothesis, i.e. there is **significant association between GICS industries and ESG score**.
+**Chi-square test** was applied to test if some industries are associated with higher or lower ESG score than others. All companies were binned into A, B, C and D grades [^6] according to their ESG combined score. The result p-value is close to zero to reject null hypothesis, i.e. there is **significant association between GICS industries and ESG score**.
 
-[^4]: Strength of correlation is measured with magnitude of correlation coefficient r, which can be described as very strong (|r| >0.8), strong (0.6<|r|<0.8), moderate (0.4<|r|<0.6), weak (0.2<|r|<0.4), and very weak (0<|r|<0.2). 
-[^5]: The grading bins in this data analysis: ESG score greater than or equal to 75 as A; Between 50 and 75 as B; Between 25 and 50 as C; Below 25 as D
+[^5]: Strength of correlation is measured with magnitude of correlation coefficient r, which can be described as very strong (|r| >0.8), strong (0.6<|r|<0.8), moderate (0.4<|r|<0.6), weak (0.2<|r|<0.4), and very weak (0<|r|<0.2). 
+[^6]: The grading bins in this data analysis: ESG score greater than or equal to 75 as A; Between 50 and 75 as B; Between 25 and 50 as C; Below 25 as D
 
 
 
