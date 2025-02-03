@@ -1,9 +1,9 @@
 # ESG Score to Explain Company Financial Performance
 This is my Master degree data analysis dissertation project.  Models built with various machine learning alglorithms trying to validate if companies ESG efforts would contribute to financial growth.
 
->**Technical Expertise: Python, Power BI, Power Query, Google Colab**
+>**Technical Expertise: `Python`, `Power BI`, `Power Query`, `Google Colab`**
 
->**Skills: Data Analysis, Machine Learning, Data Visualization**
+>**Skills: `Data Analysis`, `Machine Learning`, `Data Visualization`**
 
 ## Background
 
@@ -15,7 +15,7 @@ This project investigates the relationship between **Environmental, Social, and 
 
 ## Quick glance of the dataset
 ### Dashboard Overview
-The dataset for this project is retrieved from Refinitiv database as of 31 May 2024. Below Power BI dashboard summarized and visualised the key metrics after data preprocessing
+The dataset for this project is retrieved from Refinitiv database as of 31 May 2024. Below **`Power BI`** dashboard summarized and visualised the key metrics after data preprocessing
 
 ![Power BI Dashboard](https://github.com/user-attachments/assets/6ee913f9-926c-4a6a-9911-ef0d9a9ca002)
 
@@ -30,11 +30,11 @@ The dataset for this project is retrieved from Refinitiv database as of 31 May 2
 ### Data Preprocessing and Cleaning
 The final dataset went through a 2-step process for data preprocessing and cleaning [^3]. It is to ensure robust and valid prediction to be built with machine learning algorithms.
 
-(1)	Merging Refinitiv ROE, ESG score and financial data with macro-economic data from World Bank Open Data, using **_Power Query_** editor in **_Excel_**
+(1)	Merging Refinitiv ROE, ESG score and financial data with macro-economic data from World Bank Open Data, using **`Power Query`** editor in **Excel**
 
 a.	Country of Exchange is the key to merge country-wise GDP% growth, Inflation % and Unemployment % to each company in          final dataset. Those macro-economic data are included in subsequent prediction model building.
     
-(2)	Drop and fill missing values and remove outliers in ROE using Python operated in **_Google Colab_** environment
+(2)	Drop and fill missing values and remove outliers in ROE using **`Python`** operated in **`Google Colab`** environment
 
 a.	Companies in initial dataset with missing ROE or ESG Combined score was dropped
     
@@ -59,11 +59,13 @@ c.	Companies with extreme ROE% values, greater than 100% or less than 100% were 
 
 ### Predictors Variables
 The predictors are classified into 3 major groups: ESG metrics, financial metrics and macroeconomic metrics.
+|**ESG metrics**|**Financial metrics**|**Macroeconomic metrics**|
+|---------------|---------------------|-------------------------|
 
 ### Correlation analysis [^4]
 ![Correlation Matrix](https://github.com/user-attachments/assets/3ad22cc2-6d73-43c7-846f-ab4acf033167)
 
->**(1)	ROE vs ESG Scores**: ROE % is weakly/moderately positive correlate to ESG combined >score, and all individual pillar scores.
+>**(1)	ROE vs ESG Scores**: ROE % is weakly/moderately positive correlate to ESG combined score, and all individual pillar scores.
 
 >**(2)	ESG Scores vs other financial metrics**:
 >
