@@ -48,6 +48,10 @@ c.	Companies with extreme ROE% values, greater than 100% or less than 100% were 
 [^3]: Python codes for data preprocessing and cleaning can refer to the .py file in depository
 
 ## Deep dive into the dataset (Exploratory Data Analysis)
+
+> [!NOTE]
+> This session included substantial mathematical and statistical contents.  
+
 ### ROE%
 ![frequency_distribution_D (2)](https://github.com/user-attachments/assets/5fb02b38-db06-4561-9a07-b0d94f5403b8)
 
@@ -105,6 +109,8 @@ Full list and explanation of each predictor variables can refer to [Appendix 1 F
 ## Findings
 The dissertation employs both parametric (Linear Regression) and non-parametric (Random Forest, Support Vector Regression, Artificial Neural Networks) methods. The models are evaluated based on performance metrics such as adjusted R-squared, mean squared error, and root mean square error. Model findings are summarized below:
 
+![Model Performance Comparison](https://github.com/user-attachments/assets/69671873-fed0-4c09-ac9d-9d070bb7773f)
+
 ### Company ESG performance matters in financial outcomes
 (1)	Model Selection and performance metric: The analysis reveals that the Random Forest model outperforms other methods, achieving an adjusted R-square of 0.4950. This represents **the best model explained 49.5% of variability of the ROE** with given ESG score and other input characteristics. Linear regression comes 2nd best with adjusted R-square 0.3227.
 
@@ -134,5 +140,4 @@ The dissertation employs both parametric (Linear Regression) and non-parametric 
 
 
 
-> [!NOTE]
-> Useful information that users should know, even when skimming content.
+
